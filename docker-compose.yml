@@ -1,0 +1,33 @@
+services:
+  n1:
+    build: .
+    command: sleep inf
+    volumes:
+      - type: bind
+        source: ./app
+        target: /root/app
+
+      - type: bind
+        source: ./run
+        target: /run
+
+      - type: bind
+        source: /dev/hugepages
+        target: /dev/hugepages
+
+  n2:
+    build: .
+    command: sleep inf
+    volumes:
+      - type: bind
+        source: ./app
+        target: /root/app
+
+      - type: bind
+        source: ./run
+        target: /run
+
+      - type: bind
+        source: /dev/hugepages
+        target: /dev/hugepages
+
